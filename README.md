@@ -1,7 +1,5 @@
-# Redirox
-
 <p align="center">
-  <img src="https://redirox.vercel.app/redirox.png" width="120" alt="Redirox Logo">
+  <img src="banner-rediox.png" alt="Redirox Banner">
 </p>
 
 <h3 align="center">🚀 Smart Links. Clean Routes.</h3>

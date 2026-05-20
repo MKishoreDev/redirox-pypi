@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="banner-rediox.png" alt="Redirox Banner">
+  <img src="https://raw.githubusercontent.com/MKishoreDev/redirox-pypi/refs/heads/main/banner-rediox.png" alt="Redirox Banner">
 </p>
 
 <h1 align="center">Redirox</h1>

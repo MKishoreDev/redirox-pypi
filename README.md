@@ -35,6 +35,10 @@
     <img src="https://img.shields.io/badge/GitHub-redirox--pypi-111827?style=flat-square&logo=github">
   </a>
 
+  <a href="https://github.com/MKishoreDev/Redirox">
+    <img src="https://img.shields.io/badge/Open%20Source-Redirox%20Website-7c3aed?style=flat-square&logo=github">
+  </a>
+
   <img src="https://img.shields.io/badge/Made%20With-Python-7c3aed?style=flat-square&logo=python">
 </p>
 
@@ -58,6 +62,11 @@ So I built Redirox with one goal:
 The platform is live at:
 
 🔗 https://redirox.vercel.app
+
+The complete Redirox website is also fully open source.
+
+💻 Website Repository:
+https://github.com/MKishoreDev/Redirox
 
 After building the platform, I decided to create an official PyPI package so developers can integrate Redirox directly into Python applications, scripts, automation workflows, and Telegram bots.
 
@@ -335,8 +344,9 @@ Feel free to open issues or submit pull requests.
 | Platform | Link |
 |---|---|
 | 🌐 Website | https://redirox.vercel.app |
+| 💻 Website Source | https://github.com/MKishoreDev/Redirox |
 | 📦 PyPI | https://pypi.org/project/redirox/ |
-| 💻 GitHub | https://github.com/MKishoreDev/redirox-pypi |
+| 🐍 SDK Repository | https://github.com/MKishoreDev/redirox-pypi |
 
 ---
 

@@ -2,66 +2,84 @@
   <img src="banner-rediox.png" alt="Redirox Banner">
 </p>
 
-<h3 align="center">🚀 Smart Links. Clean Routes.</h3>
+<h1 align="center">Redirox</h1>
+
+<h3 align="center">
+🚀 Smart Links. Clean Routes.
+</h3>
 
 <p align="center">
-  Official Python SDK for Redirox URL Shortener
+  Modern Python SDK for the Redirox URL Shortener
 </p>
 
 <p align="center">
   <a href="https://pypi.org/project/redirox/">
-    <img src="https://img.shields.io/pypi/v/redirox?color=blue" alt="PyPI">
+    <img src="https://img.shields.io/pypi/v/redirox?style=for-the-badge&color=7c3aed" alt="PyPI">
   </a>
 
   <a href="https://pypi.org/project/redirox/">
-    <img src="https://img.shields.io/pypi/pyversions/redirox" alt="Python Versions">
+    <img src="https://img.shields.io/pypi/pyversions/redirox?style=for-the-badge&color=2563eb" alt="Python Versions">
   </a>
 
-  <a href="https://github.com/lib-kishore/redirox/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/lib-kishore/redirox" alt="License">
+  <a href="https://github.com/MKishoreDev/redirox-pypi/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/MKishoreDev/redirox-pypi?style=for-the-badge&color=111827" alt="License">
   </a>
+</p>
+
+<p align="center">
+  <a href="https://redirox.vercel.app">
+    <img src="https://img.shields.io/badge/Website-Redirox-111827?style=flat-square&logo=vercel">
+  </a>
+
+  <a href="https://github.com/MKishoreDev/redirox-pypi">
+    <img src="https://img.shields.io/badge/GitHub-redirox--pypi-111827?style=flat-square&logo=github">
+  </a>
+
+  <img src="https://img.shields.io/badge/Made%20With-Python-7c3aed?style=flat-square&logo=python">
 </p>
 
 ---
 
-## 🌐 About
+# 🌌 About
 
-I recently created Redirox, a lightweight and modern URL shortener.  
+Redirox is a lightweight and modern URL shortener built for developers.
+
 I always wondered:
 
-> “Is building a clean URL shortener actually simple?”
+> “Can a URL shortener be both powerful and minimal?”
 
-So I built Redirox with one goal in mind:
+So I built Redirox with one goal:
 
-- Lightweight
-- Fast
-- Modern
-- Developer friendly
+- ⚡ Fast
+- 🎯 Minimal
+- 🔒 Secure
+- 🧩 Developer friendly
 
-🔗 Website: https://redirox.vercel.app
+The platform is live at:
 
-Since I had already created Python packages before, I thought:
+🔗 https://redirox.vercel.app
 
-> “Why not create a PyPI package for Redirox too?”
-
-Now developers can shorten links, generate QR codes, and manage expiring URLs directly from Python.
+After building the platform, I decided to create an official PyPI package so developers can integrate Redirox directly into Python applications, scripts, automation workflows, and Telegram bots.
 
 ---
 
-## ✨ Features
+# ✨ Features
 
-- Short link generation
-- Password-protected links
-- Expiration date support
-- QR code generation
-- Fast redirects
-- Simple API
-- Lightweight SDK
-- Clean developer experience
+- 🔗 Smart URL shortening
+- 🔒 Password protected links
+- ⏳ Expiration support
+- 📱 QR code generation
+- ⚡ Fast redirects
+- 🪶 Lightweight SDK
+- 🐍 Pythonic API
+- 🤖 Telegram bot support using Pyrogram
+- 🌐 Clean developer experience
 
 ---
 
-## 📦 Installation
+# 📦 Installation
+
+## Basic Installation
 
 ```bash
 pip install redirox
@@ -69,7 +87,15 @@ pip install redirox
 
 ---
 
-## ⚡ Quick Start
+## Install with Telegram Bot Support
+
+```bash
+pip install pyrogram tgcrypto
+```
+
+---
+
+# ⚡ Quick Start
 
 ```python
 from redirox import Redirox
@@ -85,7 +111,7 @@ print(result)
 
 ---
 
-## 🔗 Shorten a URL
+# 🔗 Shorten URLs
 
 ```python
 from redirox import Redirox
@@ -101,41 +127,7 @@ print("Short URL:", result["short_url"])
 
 ---
 
-## 📱 Generate QR Codes
-
-```python
-from redirox import Redirox
-
-client = Redirox()
-
-result = client.shorten(
-    "https://github.com",
-    generate_qr=True
-)
-
-print(result["qr_code"])
-```
-
----
-
-## 💾 Save QR Code as PNG
-
-The QR code is returned as a base64 encoded PNG image.
-
-```python
-import base64
-
-qr_data = result["qr_code"].split(",")[1]
-
-with open("qr.png", "wb") as f:
-    f.write(base64.b64decode(qr_data))
-
-print("QR code saved!")
-```
-
----
-
-## 🔒 Password Protected Links
+# 🔒 Password Protected Links
 
 ```python
 from redirox import Redirox
@@ -152,7 +144,7 @@ print(result)
 
 ---
 
-## ⏳ Expiring Links
+# ⏳ Expiring Links
 
 ```python
 from redirox import Redirox
@@ -174,7 +166,39 @@ print(result["expires_at"])
 
 ---
 
-## 📊 Get Link Information
+# 📱 Generate QR Codes
+
+```python
+from redirox import Redirox
+
+client = Redirox()
+
+result = client.shorten(
+    "https://github.com",
+    generate_qr=True
+)
+
+print(result["qr_code"])
+```
+
+---
+
+# 💾 Save QR Code as PNG
+
+```python
+import base64
+
+qr_data = result["qr_code"].split(",")[1]
+
+with open("qr.png", "wb") as f:
+    f.write(base64.b64decode(qr_data))
+
+print("QR Code saved!")
+```
+
+---
+
+# 📊 Get Link Information
 
 ```python
 from redirox import Redirox
@@ -188,7 +212,82 @@ print(info)
 
 ---
 
-## 📄 Example Response
+# 🤖 Telegram Bot Example (Pyrogram)
+
+```python
+import base64
+
+from pyrogram import Client, filters
+from redirox import Redirox
+
+app = Client(
+    "redirox-bot",
+    api_id=12345,
+    api_hash="YOUR_API_HASH",
+    bot_token="YOUR_BOT_TOKEN"
+)
+
+redirox = Redirox()
+
+
+@app.on_message(filters.text & filters.private)
+async def shorten_link(client, message):
+    url = message.text.strip()
+
+    try:
+        result = redirox.shorten(
+            url,
+            generate_qr=True
+        )
+
+        short_url = result["short_url"]
+        qr_code = result["qr_code"]
+
+        # Decode QR Code
+        qr_data = qr_code.split(",")[1]
+
+        with open("qr.png", "wb") as f:
+            f.write(base64.b64decode(qr_data))
+
+        # Send QR Code Image
+        await message.reply_photo(
+            photo="qr.png",
+            caption=(
+                f"🔗 **Short URL:**\n"
+                f"{short_url}"
+            )
+        )
+
+    except Exception as e:
+        await message.reply_text(
+            f"❌ Error:\n{e}"
+        )
+
+
+app.run()
+```
+
+---
+
+# 📩 Example Telegram Bot Response
+
+The Telegram bot will:
+
+- 🔗 Shorten the URL
+- 📱 Generate a QR code
+- 🖼 Send the QR code as an image
+- ⚡ Return the shortened link instantly
+
+Perfect for:
+
+- Telegram utility bots
+- Channel management tools
+- Automation workflows
+- Link sharing bots
+
+---
+
+# 📄 Example Response
 
 ```python
 {
@@ -203,45 +302,53 @@ print(info)
 
 ---
 
-## 🎯 Philosophy
+# 🎯 Philosophy
 
 Redirox focuses on simplicity.
 
 No bloated dashboards.  
-No forced accounts.  
+No forced signups.  
 No unnecessary friction.
 
-Just fast redirects, clean APIs, and modern workflows.
+Just fast redirects, clean APIs, and developer-first workflows.
 
 ---
 
-## 🌍 Open Source
+# 🌍 Open Source
 
 Contributions are welcome!
 
-Whether it's:
+You can help by:
+
 - Fixing bugs
 - Improving documentation
 - Suggesting features
 - Enhancing the SDK
+- Creating integrations
 
 Feel free to open issues or submit pull requests.
 
 ---
 
-## 🔗 Links
+# 🔗 Links
 
-- Website: https://redirox.vercel.app
-- PyPI: https://pypi.org/project/redirox/
-- GitHub: https://github.com/lib-kishore/redirox
+| Platform | Link |
+|---|---|
+| 🌐 Website | https://redirox.vercel.app |
+| 📦 PyPI | https://pypi.org/project/redirox/ |
+| 💻 GitHub | https://github.com/MKishoreDev/redirox-pypi |
 
 ---
 
-## 📄 License
+# 📄 License
 
 MIT License © Kishore
 
 ---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Built%20with-Passion-7c3aed?style=for-the-badge">
+</p>
 
 <p align="center">
   ❤️ Made with passion by Kishore

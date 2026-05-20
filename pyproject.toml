@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "redirox-sdk"
+name = "redirox"
 version = "0.1.0"
 description = "Official Python SDK for Redirox URL shortener"
 readme = "README.md"

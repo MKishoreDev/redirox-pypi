@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "redirox"
-version = "0.1.0"
+version = "1.0.0"
 description = "Official Python SDK for Redirox URL shortener"
 readme = "README.md"
 authors = [
@@ -32,4 +32,4 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://redirox.vercel.app"
-Repository = "https://github.com/MKishoreDev/redirox-sdk"
+Repository = "https://github.com/MKishoreDev/redirox-pypi"

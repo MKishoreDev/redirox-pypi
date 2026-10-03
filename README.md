@@ -27,8 +27,8 @@
 </p>
 
 <p align="center">
-  <a href="https://redirox.vercel.app">
-    <img src="https://img.shields.io/badge/Website-Redirox-111827?style=flat-square&logo=vercel">
+  <a href="https://redirox.pages.dev">
+    <img src="https://img.shields.io/badge/Website-Redirox-111827?style=flat-square&logo=cloudflare">
   </a>
 
   <a href="https://github.com/MKishoreDev/redirox-pypi">
@@ -61,7 +61,7 @@ So I built Redirox with one goal:
 
 The platform is live at:
 
-🔗 https://redirox.vercel.app
+🔗 https://redirox.pages.dev
 
 The complete Redirox website is also fully open source.
 
@@ -157,12 +157,12 @@ print(result)
 
 ```python
 from redirox import Redirox
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 client = Redirox()
 
 expires_at = (
-    datetime.utcnow() + timedelta(hours=1)
+    datetime.now(timezone.utc) + timedelta(hours=1)
 ).isoformat()
 
 result = client.shorten(
@@ -216,7 +216,83 @@ client = Redirox()
 
 info = client.info("abc123")
 
-print(info)
+print("Original URL:", info["url"])
+print("Total visits:", info["visits"])
+print("Has password:", info["has_password"])
+```
+
+---
+
+# 🔑 Verify Link Password
+
+Verify passwords for protected links programmatically:
+
+```python
+from redirox import Redirox, RediroxAuthError
+
+client = Redirox()
+
+try:
+    check = client.verify("abc123", "mypassword")
+    print("Password verified successfully! Destination:", check.get("url"))
+except RediroxAuthError:
+    print("Incorrect password!")
+```
+
+---
+
+# ⚙️ Configuration & Custom Base URL
+
+```python
+from redirox import Redirox
+
+# Custom base URL and custom request timeout (in seconds)
+client = Redirox(
+    base_url="https://redirox.pages.dev",
+    timeout=20
+)
+```
+
+---
+
+# ⚠️ Error Handling & Custom Exceptions
+
+The Redirox SDK provides dedicated exception classes so your applications can catch and handle specific errors gracefully:
+
+```python
+from redirox import (
+    Redirox,
+    RediroxValidationError,
+    RediroxAuthError,
+    RediroxNotFoundError,
+    RediroxConnectionError,
+    RediroxAPIError,
+)
+
+client = Redirox()
+
+try:
+    # 1. Shorten a link
+    result = client.shorten("https://example.com", password="secretpassword")
+    print("Created:", result["short_url"])
+
+    # 2. Look up link metadata
+    info = client.info(result["code"])
+    print("Visits:", info["visits"])
+
+    # 3. Verify link password
+    client.verify(result["code"], "wrongpassword")
+
+except RediroxValidationError as e:
+    print("Validation error:", e)
+except RediroxAuthError as e:
+    print("Incorrect password:", e)
+except RediroxNotFoundError as e:
+    print("Link not found or expired:", e)
+except RediroxConnectionError as e:
+    print("Could not reach Redirox service:", e)
+except RediroxAPIError as e:
+    print(f"API Error ({e.status_code}):", e)
 ```
 
 ---
@@ -301,7 +377,7 @@ Perfect for:
 ```python
 {
     "code": "abc123",
-    "short_url": "https://redirox.vercel.app/abc123",
+    "short_url": "https://redirox.pages.dev/abc123",
     "url": "https://google.com",
     "qr_code": None,
     "expires_at": None,
@@ -343,7 +419,7 @@ Feel free to open issues or submit pull requests.
 
 | Platform | Link |
 |---|---|
-| 🌐 Website | https://redirox.vercel.app |
+| 🌐 Website | https://redirox.pages.dev |
 | 💻 Website Source | https://github.com/MKishoreDev/Redirox |
 | 📦 PyPI | https://pypi.org/project/redirox/ |
 | 🐍 SDK Repository | https://github.com/MKishoreDev/redirox-pypi |
@@ -352,7 +428,7 @@ Feel free to open issues or submit pull requests.
 
 # 📄 License
 
-MIT License © Kishore
+MIT License © Kishore M
 
 ---
 
@@ -361,5 +437,5 @@ MIT License © Kishore
 </p>
 
 <p align="center">
-  ❤️ Made with passion by Kishore
+  ❤️ Made with passion by Kishore M
 </p>
